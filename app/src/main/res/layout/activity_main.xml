@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bc"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/cityname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:gravity="center"
+        android:text="Gorakhpur"
+
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search1" />
+
+    <EditText
+        android:id="@+id/search1"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="enter city name"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:paddingLeft="10sp"
+        android:paddingTop="10sp"
+        android:paddingRight="20sp"
+        android:paddingBottom="10sp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Enetr city name" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="38dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:onClick="searched"
+        app:layout_constraintBottom_toBottomOf="@+id/search1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/search1"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_menu_search" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="126dp"
+        android:gravity="center"
+        android:paddingTop="0sp"
+        android:text="21°"
+        android:textColor="#151515"
+        android:textSize="100sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="cloudy"
+        android:textColor="#151515"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.046" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="date and time"
+        android:paddingTop="10sp"
+        android:text="TextView"
+        android:textColor="#151515"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityname" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="------------"
+        android:textColor="#151515"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temp" />
+
+    <TextView
+        android:id="@+id/minmax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="21/27"
+        android:textColor="#151515"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minmax">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="10sp"
+            app:cardElevation="0sp"
+            app:cardMaxElevation="0sp"
+            app:contentPadding="15sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="506dp">
+
+            <LinearLayout
+                android:layout_width="95dp"
+                android:layout_height="107dp"
+                android:orientation="vertical"
+                android:padding="0sp">
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    app:srcCompat="@drawable/humidity" />
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0sp"
+                    android:gravity="center|center_horizontal"
+                    android:text="humidity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="10sp"
+            app:cardElevation="0sp"
+            app:cardMaxElevation="0sp"
+            app:contentPadding="15sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="143dp"
+            tools:layout_editor_absoluteY="506dp">
+
+            <LinearLayout
+                android:layout_width="95dp"
+                android:layout_height="107dp"
+                android:orientation="vertical"
+                android:padding="0sp">
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    app:srcCompat="@drawable/rain" />
+
+                <TextView
+                    android:id="@+id/rain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0sp"
+                    android:gravity="center"
+                    android:text="rain"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="10sp"
+            app:cardElevation="0sp"
+            app:cardMaxElevation="0sp"
+            app:contentPadding="15sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="270dp"
+            tools:layout_editor_absoluteY="506dp">
+
+            <LinearLayout
+                android:layout_width="95dp"
+                android:layout_height="107dp"
+                android:orientation="vertical"
+                android:padding="0sp">
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    app:srcCompat="@drawable/wind" />
+
+                <TextView
+                    android:id="@+id/wind"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0sp"
+                    android:gravity="center"
+                    android:text="wind"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
