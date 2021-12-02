@@ -15,6 +15,12 @@ import java.lang.Exception
 import java.text.DateFormat
 import java.util.*
 
+
+import androidx.constraintlayout.widget.ConstraintLayout
+
+
+
+
 class MainActivity : AppCompatActivity(), extradata.onDataAvailable {
     private val TAG = "MainActivity"
     lateinit var sharedpreferece: SharedPreferences
@@ -22,7 +28,7 @@ class MainActivity : AppCompatActivity(), extradata.onDataAvailable {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        sharedpreferece = getSharedPreferences("shared_pref", Context.MODE_PRIVATE)
+        sharedpreferece = getSharedPreferences("shared_pref", MODE_PRIVATE)
         val citynamee = sharedpreferece.getString("city", "gorakhpur")
         val temper = sharedpreferece.getString("temp", "21")
         temp.text = temper.toString()
@@ -71,6 +77,15 @@ class MainActivity : AppCompatActivity(), extradata.onDataAvailable {
             wind.text=(data.wind.speed).toString().substring(0,1)+"mph"
             rain.text=(data.clouds.all).toString()+"cm"
             type.text = data.weather[0].description.toString()
+            if(data.weather[0].main=="Clouds")
+               homelayout.setBackgroundResource(R.drawable.cloudy)
+            else if(data.weather[0].main=="Clear")
+                homelayout.setBackgroundResource(R.drawable.sunny)
+            else if(data.weather[0].main=="Rain")
+                homelayout.setBackgroundResource(R.drawable.rainy)
+            else
+                homelayout.setBackgroundResource(R.drawable.bc)
+
             editor.apply {
                 putString("temp", temp.text as String)
                 putString("city", cityname.text.toString())
