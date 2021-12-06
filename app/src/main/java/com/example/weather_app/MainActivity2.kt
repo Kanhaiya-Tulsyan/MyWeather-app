@@ -1,65 +1,27 @@
 package com.example.weather_app
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.inputmethod.EditorInfo
 import android.widget.Toast
-import java.net.URL
-
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
-import java.text.DateFormat
-import java.util.*
 
-
-import androidx.constraintlayout.widget.ConstraintLayout
-
-
-
-
-class MainActivity : AppCompatActivity(), extradata.onDataAvailable {
+class MainActivity2 : AppCompatActivity() ,extradata.onDataAvailable{
     private val TAG = "MainActivity"
     lateinit var sharedpreferece: SharedPreferences
     private var symbol = "°"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        sharedpreferece = getSharedPreferences("shared_pref", MODE_PRIVATE)
-        val citynamee = sharedpreferece.getString("city", "gorakhpur")
-        val temper = sharedpreferece.getString("temp", "21")
-        temp.text = temper.toString()
-        cityname.text = citynamee.toString()
-        wind.text=sharedpreferece.getString("wind", "0mph")
-        rain.text=sharedpreferece.getString("rain", "0cm")
-        humidity.text=sharedpreferece.getString("humidity", "0%")
-
-        search1.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                var city = search1.text.toString()
-
-                val url =
-                        "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=8ff2cff95f93a28558e32ccff79aff0f"
-                val getRawData = extradata(this)
-                getRawData.execute(url)
-                return@setOnEditorActionListener true
-            }
-            return@setOnEditorActionListener false
-        }
-        var calendar: Calendar =Calendar.getInstance()
-        var currentdata:String= DateFormat.getDateInstance().format(calendar.getTime())
-        date.text=currentdata.toString()
-
-      fab.setOnClickListener {
-          val intent=Intent(this,MainActivity2::class.java)
-          startActivity(intent)
-      }
-
+        fab.alpha=0.0f
     }
+
+
+
 
     override fun onDataAvailable(data: datafile, tell: Boolean) {
         if (!tell) {
@@ -105,7 +67,7 @@ class MainActivity : AppCompatActivity(), extradata.onDataAvailable {
         var city = search1.text.toString()
 
         val url =
-                "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=8ff2cff95f93a28558e32ccff79aff0f"
+            "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=8ff2cff95f93a28558e32ccff79aff0f"
         try {
             val getRawData = extradata(this)
             getRawData.execute(url)
@@ -114,6 +76,8 @@ class MainActivity : AppCompatActivity(), extradata.onDataAvailable {
         }
 
     }
+
+
 
 
 }
