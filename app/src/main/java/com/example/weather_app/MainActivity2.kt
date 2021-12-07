@@ -2,12 +2,16 @@ package com.example.weather_app
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.hardware.input.InputManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
+import java.text.DateFormat
+import java.util.*
 
 class MainActivity2 : AppCompatActivity() ,extradata.onDataAvailable{
     private val TAG = "MainActivity"
@@ -18,6 +22,12 @@ class MainActivity2 : AppCompatActivity() ,extradata.onDataAvailable{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         fab.alpha=0.0f
+
+        var calendar: Calendar = Calendar.getInstance()
+        var currentdata:String= DateFormat.getDateInstance().format(calendar.getTime())
+        date.text=currentdata.toString()
+
+
     }
 
 
@@ -61,6 +71,7 @@ class MainActivity2 : AppCompatActivity() ,extradata.onDataAvailable{
             Toast.makeText(this, "Plz enter a valid city", Toast.LENGTH_SHORT).show()
 
         }
+        close_keyboard(cityname)
     }
 
     fun searched(view: View) {
@@ -78,6 +89,12 @@ class MainActivity2 : AppCompatActivity() ,extradata.onDataAvailable{
     }
 
 
+     fun close_keyboard(view:View)
+     {
+         val imm:InputMethodManager=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+         imm.hideSoftInputFromWindow(view.windowToken,0)
 
+
+     }
 
 }

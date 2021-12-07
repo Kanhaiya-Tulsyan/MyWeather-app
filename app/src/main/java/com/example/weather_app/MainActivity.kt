@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import java.net.URL
 
@@ -99,6 +100,7 @@ class MainActivity : AppCompatActivity(), extradata.onDataAvailable {
             Toast.makeText(this, "Plz enter a valid city", Toast.LENGTH_SHORT).show()
 
         }
+        close_keyboard(cityname)
     }
 
     fun searched(view: View) {
@@ -112,6 +114,13 @@ class MainActivity : AppCompatActivity(), extradata.onDataAvailable {
         } catch (e: Exception) {
             Toast.makeText(this, "Plz enter a valid city", Toast.LENGTH_SHORT).show()
         }
+
+    }
+    fun close_keyboard(view:View)
+    {
+        val imm: InputMethodManager =getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken,0)
+
 
     }
 
